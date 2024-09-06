@@ -1,4 +1,4 @@
-package backend.academy.hangman.Model;
+package backend.academy.hangman.Controller;
 
 public class CommandHandler {
     // public String
