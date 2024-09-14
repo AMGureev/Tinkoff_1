@@ -1,16 +1,20 @@
 package backend.academy.hangman.View;
 
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @NoArgsConstructor
 public class SelectionCategoryMenuView {
+    private static final Logger logger = LogManager.getLogger(SelectionCategoryMenuView.class);
+
     public void printHeading() {
-        System.out.println("Choose your category");
+        logger.info("Choose your category");
     }
 
     public void displaySetLevel() {
-        System.out.println("Choose your level");
-        System.out.println("[1] Easy level");
-        System.out.println("[2] Hard level");
+        logger.info("Choose your level");
+        logger.info("[1] Easy level");
+        logger.info("[2] Hard level");
     }
 }

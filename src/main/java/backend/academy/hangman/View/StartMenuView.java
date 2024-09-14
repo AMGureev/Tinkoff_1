@@ -1,25 +1,29 @@
 package backend.academy.hangman.View;
 
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @NoArgsConstructor
 public class StartMenuView {
+    private static final Logger logger = LogManager.getLogger(StartMenuView.class);
+
     public void displayStartMenu() {
-        System.out.println("Welcome to Hangman!");
+        logger.info("Welcome to Hangman!");
     }
 
     public void displayGoodbye() {
-        System.out.println("Goodbye!");
+        logger.info("Goodbye!");
     }
 
     public void displaySelect() {
-        System.out.println("[1] Start Game");
-        System.out.println("[2] View Statistics");
-        System.out.println("[3] Exit");
-        System.out.print("Please select an option: ");
+        logger.info("[1] Start Game");
+        logger.info("[2] View Statistics");
+        logger.info("[3] Exit");
+        logger.info("Please select an option: ");
     }
 
     public void displayError() {
-        System.out.println("Error: please, input integer[1-3]");
+        logger.info("Error: please, input integer[1-3]");
     }
 }

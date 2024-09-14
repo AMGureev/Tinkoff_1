@@ -12,10 +12,14 @@ import java.util.Random;
 import java.util.Set;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Getter
 @NoArgsConstructor
 public class Dictionary {
+    private static final Logger logger = LogManager.getLogger(Dictionary.class);
+
     private final List<WordEntity> words = new ArrayList<>();
     private final Random random = new Random();
 
@@ -30,7 +34,7 @@ public class Dictionary {
                 }
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 

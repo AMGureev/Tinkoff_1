@@ -1,15 +1,19 @@
 package backend.academy.hangman.Model;
 
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
 
 @NoArgsConstructor
 public class StartMenu {
+    private static final Logger logger = LogManager.getLogger(StartMenu.class);
+
     public int input() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt()) {
-            System.out.println("Error: enter an integer [1-3]");
+            logger.error("Error: enter an integer [1-3]");
             scanner.next();
         }
         return scanner.nextInt();

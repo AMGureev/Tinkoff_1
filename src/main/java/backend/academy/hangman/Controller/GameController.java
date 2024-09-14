@@ -1,8 +1,8 @@
 package backend.academy.hangman.Controller;
 
-import backend.academy.hangman.Model.GameSession;
 import backend.academy.hangman.Entity.WordCollectorEntity;
 import backend.academy.hangman.Entity.WordEntity;
+import backend.academy.hangman.Model.GameSession;
 import backend.academy.hangman.Model.HangmanStagesModel;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.Model.ValidationResultsModel;
@@ -11,8 +11,11 @@ import backend.academy.hangman.View.GameView;
 import com.google.inject.Inject;
 import java.util.Objects;
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GameController {
+    private static final Logger logger = LogManager.getLogger(GameController.class);
     private HangmanStagesModel hangmanStageEntity;
     private final ValidatorController validator = new ValidatorController(new ValidationResultsModel());
     private final WordEntity wordToGuess;
@@ -70,7 +73,7 @@ public class GameController {
                 this.game = false;
             } else {
                 if (!validator.checkInput(input)) {
-                    System.out.println(validator.getLast().message());
+                    logger.info(validator.getLast().message());
                     return;
                 }
                 if (wordCollectorModel.getLetters().contains(input.charAt(0))) {
@@ -102,9 +105,9 @@ public class GameController {
 
     private void displayGameStatus() {
         printGallows();
-        System.out.println("Word: " + getWordWithGuessedLetters());
-        System.out.println("Guessed letters: " + wordCollectorModel.getLetters());
-        System.out.println("Enter a letter or a command ('get hint', 'exit', 'menu'):");
+        logger.info("Word: {}", getWordWithGuessedLetters());
+        logger.info("Guessed letters: {}", wordCollectorModel.getLetters());
+        logger.info("Enter a letter or a command ('get hint', 'exit', 'menu'):");
     }
 
     private String getWordWithGuessedLetters() {
@@ -120,7 +123,7 @@ public class GameController {
     }
 
     private void printGallows() {
-        System.out.println(hangmanStageEntity.value());
+        logger.info(hangmanStageEntity.value());
     }
 
     private void printWordType() {
