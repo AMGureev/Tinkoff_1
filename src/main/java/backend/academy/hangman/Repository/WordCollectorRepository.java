@@ -1,5 +1,8 @@
 package backend.academy.hangman.Repository;
 
+import java.util.List;
+
 public interface WordCollectorRepository {
-    public boolean addLetter(char letter);
+    void addLetter(char letter);
+    List<Character> getLetters();
 }
