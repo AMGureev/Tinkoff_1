@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 @NoArgsConstructor
 public class StartMenu {
-    private static final Logger logger = LogManager.getLogger(StartMenu.class);
+    private static final Logger LOGGER = LogManager.getLogger(StartMenu.class);
 
     public int input() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt()) {
-            logger.error("Error: enter an integer [1-3]");
+            LOGGER.error("Error: enter an integer [1-3]");
             scanner.next();
         }
         return scanner.nextInt();

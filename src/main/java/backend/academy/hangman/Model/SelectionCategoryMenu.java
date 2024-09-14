@@ -10,23 +10,23 @@ import org.apache.logging.log4j.Logger;
 
 @NoArgsConstructor
 public class SelectionCategoryMenu {
-    private static final Logger logger = LogManager.getLogger(SelectionCategoryMenu.class);
+    private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenu.class);
 
     private final DictionaryController dictionary = new DictionaryController();
 
     public void viewCategory() {
         List<String> types = dictionary.getTypes();
         for (int i = 0; i < types.size(); i++) {
-            logger.info("{}. {}", i, types.get(i));
+            LOGGER.info("{}. {}", i, types.get(i));
         }
-        logger.info("Other integer. random");
-        logger.info("Please select a category: ");
+        LOGGER.info("Other integer. random");
+        LOGGER.info("Please select a category: ");
     }
 
     public int input() {
         Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt()) {
-            logger.error("Error: enter an integer.");
+            LOGGER.error("Error: enter an integer.");
             scanner.next();
         }
         return scanner.nextInt();

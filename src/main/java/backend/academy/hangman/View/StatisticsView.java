@@ -6,9 +6,9 @@ import org.apache.logging.log4j.Logger;
 
 @NoArgsConstructor
 public class StatisticsView {
-    private static final Logger logger = LogManager.getLogger(StatisticsView.class);
+    private static final Logger LOGGER = LogManager.getLogger(StatisticsView.class);
 
     public void displayStatistics(String statistics) {
-        logger.info("Statistics:\n{}", statistics);
+        LOGGER.info("Statistics:\n{}", statistics);
     }
 }

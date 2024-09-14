@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class GameController {
-    private static final Logger logger = LogManager.getLogger(GameController.class);
+    private static final Logger LOGGER = LogManager.getLogger(GameController.class);
     private HangmanStagesModel hangmanStageEntity;
     private final ValidatorController validator = new ValidatorController(new ValidationResultsModel());
     private final WordEntity wordToGuess;
@@ -73,7 +73,7 @@ public class GameController {
                 this.game = false;
             } else {
                 if (!validator.checkInput(input)) {
-                    logger.info(validator.getLast().message());
+                    LOGGER.info(validator.getLast().message());
                     return;
                 }
                 if (wordCollectorModel.getLetters().contains(input.charAt(0))) {
@@ -105,9 +105,9 @@ public class GameController {
 
     private void displayGameStatus() {
         printGallows();
-        logger.info("Word: {}", getWordWithGuessedLetters());
-        logger.info("Guessed letters: {}", wordCollectorModel.getLetters());
-        logger.info("Enter a letter or a command ('get hint', 'exit', 'menu'):");
+        LOGGER.info("Word: {}", getWordWithGuessedLetters());
+        LOGGER.info("Guessed letters: {}", wordCollectorModel.getLetters());
+        LOGGER.info("Enter a letter or a command ('get hint', 'exit', 'menu'):");
     }
 
     private String getWordWithGuessedLetters() {
@@ -123,7 +123,7 @@ public class GameController {
     }
 
     private void printGallows() {
-        logger.info(hangmanStageEntity.value());
+        LOGGER.info(hangmanStageEntity.value());
     }
 
     private void printWordType() {

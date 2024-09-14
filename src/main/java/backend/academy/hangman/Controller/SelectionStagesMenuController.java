@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class SelectionStagesMenuController {
-    private static final Logger logger = LogManager.getLogger(SelectionStagesMenuController.class);
+    private static final Logger LOGGER = LogManager.getLogger(SelectionStagesMenuController.class);
     private final SelectionCategoryMenu model;
     private final SelectionCategoryMenuView view;
 
@@ -41,7 +41,7 @@ public class SelectionStagesMenuController {
                 Main.injector.getInstance(GameView.class));
             controller.startGame();
         } else {
-            logger.error("Error: there are no words of such complexity.");
+            LOGGER.error("Error: there are no words of such complexity.");
         }
     }
 
