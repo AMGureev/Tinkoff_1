@@ -2,9 +2,9 @@ package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Controller.DictionaryController;
 import backend.academy.hangman.Entity.WordEntity;
-import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Scanner;
+import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class SelectionCategoryMenu {
@@ -15,7 +15,7 @@ public class SelectionCategoryMenu {
         for (int i = 0; i < types.size(); i++) {
             System.out.println(i + ". " + types.get(i));
         }
-        System.out.println("Other integer. random" );
+        System.out.println("Other integer. random");
         System.out.print("Please select a category: ");
     }
 

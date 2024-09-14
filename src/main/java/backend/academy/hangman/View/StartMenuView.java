@@ -7,6 +7,7 @@ public class StartMenuView {
     public void displayStartMenu() {
         System.out.println("Welcome to Hangman!");
     }
+
     public void displayGoodbye() {
         System.out.println("Goodbye!");
     }

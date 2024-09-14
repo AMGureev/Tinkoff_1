@@ -1,8 +1,6 @@
 package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Entity.WordEntity;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +10,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor

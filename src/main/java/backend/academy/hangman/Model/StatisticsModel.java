@@ -1,10 +1,10 @@
 package backend.academy.hangman.Model;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,6 +12,7 @@ import java.util.List;
 public class StatisticsModel {
     private Integer countGame = 0;
     private List<GameSession> gameSessions = new ArrayList<>();
+
     @Override
     public String toString() {
         StringBuilder answer = new StringBuilder("Count game: " + countGame + "\n");

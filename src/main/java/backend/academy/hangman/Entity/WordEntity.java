@@ -9,6 +9,7 @@ public class WordEntity {
     private String word;
     private String type;
     private String hint;
+
     @Override
     public String toString() {
         return "Word: " + word + "; Type: " + type;

@@ -11,10 +11,12 @@ public class StartMenuController {
     private final SelectionStagesMenuController stagesMenu;
 
     @Inject
-    public StartMenuController(StartMenuView view,
+    public StartMenuController(
+        StartMenuView view,
         StartMenu model,
         GameStatisticsController statisticsController,
-        SelectionStagesMenuController stagesMenu) {
+        SelectionStagesMenuController stagesMenu
+    ) {
         this.view = view;
         this.model = model;
         this.statisticsController = statisticsController;
@@ -28,7 +30,7 @@ public class StartMenuController {
             view.displaySelect();
             choice = model.input();
             switch (choice) {
-                case 1 :
+                case 1:
                     setCategoryMenu();
                     break;
                 case 2:

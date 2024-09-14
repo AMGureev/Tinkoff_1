@@ -11,6 +11,7 @@ public class GameSession {
     private String word;
     private Integer attempt;
     private String status;
+
     @Override
     public String toString() {
         return "Word: " + word + "; Attempt: " + attempt + "; Status: " + status;

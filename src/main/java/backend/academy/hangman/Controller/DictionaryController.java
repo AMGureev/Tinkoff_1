@@ -1,7 +1,7 @@
 package backend.academy.hangman.Controller;
 
-import backend.academy.hangman.Model.Dictionary;
 import backend.academy.hangman.Entity.WordEntity;
+import backend.academy.hangman.Model.Dictionary;
 import java.util.List;
 
 public class DictionaryController {

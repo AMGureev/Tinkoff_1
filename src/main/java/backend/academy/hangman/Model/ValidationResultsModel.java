@@ -2,9 +2,9 @@ package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Entity.ValidatorErrorEntity;
 import backend.academy.hangman.Repository.ValidationResultsRepository;
-import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 @Getter
 public class ValidationResultsModel implements ValidationResultsRepository {
