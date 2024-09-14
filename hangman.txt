@@ -1,0 +1,60 @@
+animal;cat;this animal says "meow"
+animal;giraffe;this animal has a long neck
+animal;alligator;swims and has many teeth
+animal;elephant;largest land animal
+animal;lion;known as the king of the jungle
+animal;penguin;a flightless bird that swims
+animal;tiger;striped big cat
+animal;dolphin;intelligent marine mammal
+animal;kangaroo;jumps and carries babies in a pouch
+animal;octopus;sea creature with eight arms
+fruit;apple;often red or green, keeps doctors away
+fruit;banana;yellow fruit, rich in potassium
+fruit;orange;citrus fruit, commonly juiced
+fruit;strawberry;red fruit with seeds on the outside
+fruit;watermelon;large green fruit, sweet and watery
+fruit;pineapple;spiky fruit, often found in tropical places
+fruit;mango;sweet tropical fruit with a large pit
+fruit;grape;small, round fruit, can be green or purple
+fruit;kiwi;small fruit with brown fuzzy skin
+fruit;blueberry;small, round, and blue
+country;france;famous for the Eiffel Tower
+country;brazil;known for the Amazon rainforest and football
+country;japan;island nation, famous for sushi
+country;canada;country with maple leaves and cold winters
+country;germany;known for cars and Oktoberfest
+country;australia;famous for kangaroos and the outback
+country;russia;the largest country in the world
+country;china;the most populous country
+country;egypt;home of the pyramids and the Nile
+country;italy;famous for pizza and pasta
+profession;doctor;helps sick people get better
+profession;teacher;educates students in schools
+profession;pilot;flies airplanes
+profession;chef;cooks meals in a restaurant
+profession;engineer;designs and builds things
+profession;farmer;grows crops and raises animals
+profession;lawyer;represents people in court
+profession;firefighter;fights fires and rescues people
+profession;artist;creates paintings, drawings, or sculptures
+profession;nurse;takes care of patients in hospitals
+vehicle;car;a common four-wheeled vehicle
+vehicle;bicycle;two-wheeled vehicle, powered by pedaling
+vehicle;airplane;flies in the sky and carries passengers
+vehicle;train;runs on tracks and can carry many people
+vehicle;motorcycle;two-wheeled motorized vehicle
+vehicle;boat;floats on water and can carry people or goods
+vehicle;helicopter;flies with rotating blades
+vehicle;bus;carries many passengers through city streets
+vehicle;submarine;underwater vehicle
+vehicle;truck;carries heavy loads over long distances
+technology;computer;used for programming and browsing the internet
+technology;smartphone;a handheld device that makes calls and runs apps
+technology;television;displays video content in homes
+technology;camera;used to take photographs
+technology;robot;a machine that can perform tasks autonomously
+technology;drone;a flying device often used for photography
+technology;keyboard;used to type letters into a computer
+technology;internet;connects computers and allows communication worldwide
+technology;printer;used to print documents from a computer
+technology;tablet;a handheld device larger than a smartphone
