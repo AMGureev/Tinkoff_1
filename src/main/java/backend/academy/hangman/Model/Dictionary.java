@@ -24,11 +24,12 @@ public class Dictionary {
     private final Random random = new Random();
 
     public void loadWordsFromFile(String filePath) {
+        final int length = 3;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length == 3) {
+                if (parts.length == length) {
                     WordEntity wordEntity = new WordEntity(parts[1], parts[0], parts[2]);
                     words.add(wordEntity);
                 }
@@ -53,17 +54,17 @@ public class Dictionary {
         } else {
             filteredWords = getFilteredDictionary(category);
         }
-        int minLength;
-        int maxLength;
+        int minLength = 0;
+        int maxLength = Integer.MAX_VALUE;
         if (level == 1) {
-            minLength = 0;
             maxLength = 6;
         } else {
             minLength = 5;
-            maxLength = Integer.MAX_VALUE;
         }
+        int finalMinLength = minLength;
+        int finalMaxLength = maxLength;
         List<WordEntity> wordsByLevel = filteredWords.stream()
-            .filter(word -> word.word().length() >= minLength && word.word().length() <= maxLength)
+            .filter(word -> word.word().length() >= finalMinLength && word.word().length() <= finalMaxLength)
             .toList();
 
         if (wordsByLevel.isEmpty()) {
