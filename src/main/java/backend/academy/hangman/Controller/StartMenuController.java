@@ -9,6 +9,7 @@ public class StartMenuController {
     private final StartMenu model;
     private final GameStatisticsController statisticsController;
     private final SelectionStagesMenuController stagesMenu;
+    private final Integer MAX_COUNT;
 
     @Inject
     public StartMenuController(
@@ -21,12 +22,13 @@ public class StartMenuController {
         this.model = model;
         this.statisticsController = statisticsController;
         this.stagesMenu = stagesMenu;
+        MAX_COUNT = 3;
     }
 
     public void start() {
         view.displayStartMenu();
         int choice = 0;
-        while (choice != 3) {
+        while (choice != MAX_COUNT) {
             view.displaySelect();
             choice = model.input();
             switch (choice) {
