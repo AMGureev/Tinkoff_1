@@ -40,9 +40,9 @@ public class StartMenuController {
                     break;
                 case 3:
                     exitProgram();
+                    break;
                 default:
                     view.displayError();
-                    break;
             }
         }
     }
