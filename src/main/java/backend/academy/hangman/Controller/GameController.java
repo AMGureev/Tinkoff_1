@@ -65,45 +65,40 @@ public class GameController {
     }
 
     private void processInput(String input) {
-        boolean isValidInput = true;
-
         switch (input) {
             case "get hint":
                 view.printHint(wordToGuess);
-                return;
+                break;
 
             case "exit":
                 exit();
-                return;
+                break;
 
             case "menu":
                 view.returnOutput();
                 this.game = false;
-                return;
+                break;
 
             default:
                 if (!validator.checkInput(input)) {
                     LOGGER.info(validator.getLast().message());
-                    isValidInput = false;
-                } else if (wordCollectorModel.getLetters().contains(input.charAt(0))) {
+                    break;
+                }
+                if (wordCollectorModel.getLetters().contains(input.charAt(0))) {
                     view.printWarning();
-                    isValidInput = false;
+                    break;
+                }
+                wordCollectorModel.addLetter(input.charAt(0));
+                if (wordToGuess.word().contains(input)) {
+                    if (isWordGuessed()) {
+                        gameWon = true;
+                    }
+                } else {
+                    hangmanStageEntity = hangmanStageEntity.nextStage();
                 }
                 break;
         }
-
-        if (isValidInput) {
-            wordCollectorModel.addLetter(input.charAt(0));
-            if (wordToGuess.word().contains(input)) {
-                if (isWordGuessed()) {
-                    gameWon = true;
-                }
-            } else {
-                hangmanStageEntity = hangmanStageEntity.nextStage();
-            }
-        }
     }
-
 
     private boolean isWordGuessed() {
         for (int i = 0; i < wordToGuess.word().length(); i++) {

@@ -37,7 +37,7 @@ public class StartMenuController {
                 case 2:
                     displayUserStatistics();
                     break;
-                case 3:
+                case DEFAULT_MAX_COUNT:
                     exitProgram();
                     break;
                 default:
