@@ -65,13 +65,21 @@ public class GameController {
     }
 
     private void processInput(String input) {
-        if (!input.equals("get hint")) {
-            if (input.equals("exit")) {
+        switch (input) {
+            case "get hint":
+                view.printHint(wordToGuess);
+                break;
+
+            case "exit":
                 exit();
-            } else if (input.equals("menu")) {
+                break;
+
+            case "menu":
                 view.returnOutput();
                 this.game = false;
-            } else {
+                break;
+
+            default:
                 if (!validator.checkInput(input)) {
                     LOGGER.info(validator.getLast().message());
                     return;
@@ -88,9 +96,7 @@ public class GameController {
                 } else {
                     hangmanStageEntity = hangmanStageEntity.nextStage();
                 }
-            }
-        } else {
-            view.printHint(wordToGuess);
+                break;
         }
     }
 
