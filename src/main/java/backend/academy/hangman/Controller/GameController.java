@@ -43,7 +43,7 @@ public class GameController {
         view.greetingOutput();
         GameSession gameSession = new GameSession(wordToGuess.word());
         printWordType();
-        while (!Objects.equals(hangmanStageEntity.value(), HangmanStagesModel.STAGA_7.value()) && !gameWon && game) {
+        while (!Objects.equals(hangmanStageEntity.value(), HangmanStagesModel.STAGE_7.value()) && !gameWon && game) {
             displayGameStatus();
             String input = scanner.nextLine().toLowerCase();
             processInput(input);
