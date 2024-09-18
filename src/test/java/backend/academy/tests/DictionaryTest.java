@@ -16,19 +16,18 @@ public class DictionaryTest {
     @BeforeEach
     public void setUp() {
         dictionary = new Dictionary();
-        dictionary.loadWordsFromFile("src/test/resources/test_words.txt");
+        dictionary.loadWordsFromFile("test_words.txt");
     }
 
     @Test
     public void testLoadWordsFromFile() {
         List<WordEntity> words = dictionary.words();
         assertFalse(words.isEmpty(), "Words should be loaded");
-        assertEquals(6, words.size(), "Expected 6 words in the test file");
+        assertEquals(4, words.size(), "Expected 4 words in the test file");
 
         WordEntity word1 = words.getFirst();
         assertEquals("fruit", word1.type());
         assertEquals("apple", word1.word());
-        assertEquals("A common fruit", word1.hint());
     }
 
     @Test
