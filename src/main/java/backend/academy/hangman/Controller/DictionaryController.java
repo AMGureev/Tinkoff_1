@@ -7,12 +7,11 @@ import java.util.List;
 public class DictionaryController {
     private final Dictionary dictionary = new Dictionary();
 
-    public DictionaryController() {
-        readFile();
+    public DictionaryController(String link) {
+        readFile(link);
     }
 
-    public void readFile() {
-        String link = "hangman.txt";
+    public void readFile(String link) {
         dictionary.loadWordsFromFile(link);
     }
 

@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class SelectionCategoryMenu {
     private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenu.class);
 
-    private final DictionaryController dictionary = new DictionaryController();
+    private final DictionaryController dictionary = new DictionaryController("hangman.txt");
 
     public void viewCategory() {
         List<String> types = dictionary.getTypes();
