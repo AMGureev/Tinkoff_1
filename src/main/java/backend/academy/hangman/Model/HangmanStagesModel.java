@@ -52,7 +52,7 @@ public enum HangmanStagesModel {
               |
              ===
         """),
-    STAGA_7("""
+    STAGE_7("""
           +---+
           O   |
          /|\\  |
