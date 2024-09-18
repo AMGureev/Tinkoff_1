@@ -1,0 +1,6 @@
+fruit;apple;A common fruit
+fruit;banana;A yellow fruit
+animal;tiger;A large wild cat
+animal;elephant;A large animal with a trunk
+fruit;cherry;A small red fruit
+animal;giraffe;An animal with a long neck
