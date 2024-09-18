@@ -18,8 +18,8 @@ import org.apache.logging.log4j.Logger;
 @Getter
 @NoArgsConstructor
 public class Dictionary {
-    private static final int MAX_LENGTH_LEVEL_1 = 6;
-    private static final int MIN_LENGTH_OTHER_LEVELS = 5;
+    private static final int MAX_LENGTH_LEVEL_1 = 5;
+    private static final int MIN_LENGTH_OTHER_LEVELS = 6;
     private static final Logger LOGGER = LogManager.getLogger(Dictionary.class);
 
     private final List<WordEntity> words = new ArrayList<>();
