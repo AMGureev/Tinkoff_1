@@ -9,10 +9,9 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Main {
-    @Getter public static Injector injector;
+    @Getter public static Injector injector = Guice.createInjector(new AppModule());
 
     public static void main(String[] args) {
-        injector = Guice.createInjector(new AppModule());
         StartMenuController controller = injector.getInstance(StartMenuController.class);
         controller.start();
     }
