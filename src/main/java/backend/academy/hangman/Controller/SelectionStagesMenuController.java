@@ -9,11 +9,13 @@ import backend.academy.hangman.View.SelectionCategoryMenuView;
 import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
 
 public class SelectionStagesMenuController {
     private static final Logger LOGGER = LogManager.getLogger(SelectionStagesMenuController.class);
     private final SelectionCategoryMenu model;
     private final SelectionCategoryMenuView view;
+    public Scanner scanner;
 
     @Inject
     public SelectionStagesMenuController(
