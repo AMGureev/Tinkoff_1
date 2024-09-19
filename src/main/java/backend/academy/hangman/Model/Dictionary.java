@@ -30,7 +30,8 @@ public class Dictionary {
         final int length = 3;
         File file = new File(filePath);
         if (!file.exists()) {
-            LOGGER.error("Error: the file does not exist. [SelectionCategoryMenu, when create new DictionaryController]");
+            LOGGER.error("Error: the file does not exist. "
+                + "[SelectionCategoryMenu, when create new DictionaryController]");
             System.exit(0);
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
