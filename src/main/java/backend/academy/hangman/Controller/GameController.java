@@ -39,13 +39,12 @@ public class GameController {
     }
 
     public void startGame() {
-        Scanner scanner = new Scanner(System.in);
         view.greetingOutput();
         GameSession gameSession = new GameSession(wordToGuess.word());
         printWordType();
         while (!Objects.equals(hangmanStageEntity.value(), HangmanStagesModel.STAGE_7.value()) && !gameWon && game) {
             displayGameStatus();
-            String input = scanner.nextLine().toLowerCase();
+            String input = input().toLowerCase();
             processInput(input);
             addAttemptGameSession(gameSession);
         }
@@ -147,5 +146,10 @@ public class GameController {
     private void exit() {
         view.goodbyeOutput();
         System.exit(0);
+    }
+
+    public String input() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }
