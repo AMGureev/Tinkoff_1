@@ -7,9 +7,9 @@ import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
 import backend.academy.hangman.View.SelectionCategoryMenuView;
 import com.google.inject.Inject;
+import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Scanner;
 
 public class SelectionStagesMenuController {
     private static final Logger LOGGER = LogManager.getLogger(SelectionStagesMenuController.class);
