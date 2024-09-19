@@ -1,6 +1,8 @@
 package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Entity.ValidatorErrorEntity;
+import backend.academy.hangman.Repository.Validator;
+
 import java.util.List;
 
 public class CommandValidator implements Validator {

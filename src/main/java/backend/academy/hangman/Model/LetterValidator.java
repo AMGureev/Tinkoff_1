@@ -1,6 +1,7 @@
 package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Entity.ValidatorErrorEntity;
+import backend.academy.hangman.Repository.Validator;
 
 public class LetterValidator implements Validator {
     @Override
