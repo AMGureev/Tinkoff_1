@@ -2,6 +2,7 @@ package backend.academy.hangman.Model;
 
 import backend.academy.hangman.Entity.WordEntity;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,11 @@ public class Dictionary {
 
     public void loadWordsFromFile(String filePath) {
         final int length = 3;
+        File file = new File(filePath);
+        if (!file.exists()) {
+            LOGGER.error("Error: the file does not exist. [SelectionCategoryMenu, when create new DictionaryController]");
+            System.exit(0);
+        }
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
