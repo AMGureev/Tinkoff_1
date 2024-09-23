@@ -15,6 +15,6 @@ public class GameStatisticsController {
     }
 
     public void displayStatistics() {
-        view.displayStatistics(model.toString());
+        view.displayStatistics(model.getAllInfoStatistics());
     }
 }

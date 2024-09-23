@@ -13,8 +13,7 @@ public class StatisticsModel {
     private Integer countGame = 0;
     private List<GameSession> gameSessions = new ArrayList<>();
 
-    @Override
-    public String toString() {
+    public String getAllInfoStatistics() {
         StringBuilder answer = new StringBuilder("Count game: " + countGame + "\n");
         int counter = 1;
         for (GameSession game : gameSessions) {

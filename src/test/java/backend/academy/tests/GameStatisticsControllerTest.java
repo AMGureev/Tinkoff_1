@@ -28,7 +28,7 @@ class GameStatisticsControllerTest {
 
     @Test
     void testDisplayStatistics() {
-        when(mockModel.toString()).thenReturn("Test statistics");
+        when(mockModel.getAllInfoStatistics()).thenReturn("Test statistics");
         controller.displayStatistics();
         verify(mockView).displayStatistics("Test statistics");
     }

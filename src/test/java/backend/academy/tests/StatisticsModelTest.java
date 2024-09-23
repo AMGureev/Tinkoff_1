@@ -34,18 +34,18 @@ public class StatisticsModelTest {
     }
 
     @Test
-    public void testToStringSingleGame() {
+    public void testGetAllInfoStatisticsSingleGame() {
         GameSession gameSession = new GameSession("watermelon", 8, "win");
         statisticsModel.addGame(gameSession);
 
         String expected = "Count game: 1\n" +
             "1. Word: watermelon; Attempt: 8; Status: win";
 
-        assertEquals(expected, statisticsModel.toString());
+        assertEquals(expected, statisticsModel.getAllInfoStatistics());
     }
 
     @Test
-    public void testToStringMultipleGames() {
+    public void testGetAllInfoStatisticsMultipleGames() {
         GameSession gameSession1 = new GameSession("bad", 5, "win");
         GameSession gameSession2 = new GameSession("Loss", 8, "loss");
 
@@ -57,6 +57,6 @@ public class StatisticsModelTest {
             1. Word: bad; Attempt: 5; Status: win
             2. Word: Loss; Attempt: 8; Status: loss""";
 
-        assertEquals(expected, statisticsModel.toString());
+        assertEquals(expected, statisticsModel.getAllInfoStatistics());
     }
 }
