@@ -27,9 +27,8 @@ public class StartMenuController {
     public void start() {
         startMenuView.displayStartMenu();
         int choice = 0;
+        choice = inputChoice();
         while (choice != DEFAULT_MAX_COUNT) {
-            startMenuView.displaySelect();
-            choice = startMenuModel.input();
             switch (choice) {
                 case 1:
                     setGameMode();
@@ -40,6 +39,7 @@ public class StartMenuController {
                 default:
                     startMenuView.displayError();
             }
+            choice = inputChoice();
         }
         exitProgram();
     }
@@ -55,5 +55,10 @@ public class StartMenuController {
     public void exitProgram() {
         startMenuView.displayGoodbye();
         startMenuModel.exit();
+    }
+
+    public int inputChoice() {
+        startMenuView.displaySelect();
+        return startMenuModel.input();
     }
 }
