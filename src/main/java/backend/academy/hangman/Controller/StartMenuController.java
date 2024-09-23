@@ -5,10 +5,10 @@ import backend.academy.hangman.View.StartMenuView;
 import com.google.inject.Inject;
 
 public class StartMenuController {
-    private final StartMenuView view;
-    private final StartMenu model;
+    private final StartMenuView startMenuView;
+    private final StartMenu startMenuModel;
     private final GameStatisticsController statisticsController;
-    private final SelectionGameModeController stagesMenu;
+    private final SelectionGameModeController gameModeController;
     private static final int DEFAULT_MAX_COUNT = 3;
 
     @Inject
@@ -18,18 +18,18 @@ public class StartMenuController {
         GameStatisticsController statisticsController,
         SelectionGameModeController stagesMenu
     ) {
-        this.view = view;
-        this.model = model;
+        this.startMenuView = view;
+        this.startMenuModel = model;
         this.statisticsController = statisticsController;
-        this.stagesMenu = stagesMenu;
+        this.gameModeController = stagesMenu;
     }
 
     public void start() {
-        view.displayStartMenu();
+        startMenuView.displayStartMenu();
         int choice = 0;
         while (choice != DEFAULT_MAX_COUNT) {
-            view.displaySelect();
-            choice = model.input();
+            startMenuView.displaySelect();
+            choice = startMenuModel.input();
             switch (choice) {
                 case 1:
                     setGameMode();
@@ -41,7 +41,7 @@ public class StartMenuController {
                     exitProgram();
                     break;
                 default:
-                    view.displayError();
+                    startMenuView.displayError();
             }
         }
     }
@@ -51,11 +51,11 @@ public class StartMenuController {
     }
 
     public void setGameMode() {
-        stagesMenu.chooseCategory();
+        gameModeController.chooseCategory();
     }
 
     public void exitProgram() {
-        view.displayGoodbye();
-        model.exit();
+        startMenuView.displayGoodbye();
+        startMenuModel.exit();
     }
 }
