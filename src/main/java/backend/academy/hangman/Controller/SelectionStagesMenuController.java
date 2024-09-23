@@ -29,12 +29,14 @@ public class SelectionStagesMenuController {
         model.viewCategory();
         int choice;
         choice = model.input();
+        view.printChoiceCategory(model.getCategory(choice));
         chooseLevel(choice);
     }
 
     public void chooseLevel(Integer choice) {
         view.displaySetLevel();
         int level = model.input();
+        view.printChoiceLevel(model.getLevel(level));
         WordEntity word = model.getRandomWordByCategoryAndLevel(choice, level);
         if (word != null) {
             GameController controller = new GameController(word, Main.injector.getInstance(StatisticsModel.class),

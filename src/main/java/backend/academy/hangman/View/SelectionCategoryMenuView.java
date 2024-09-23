@@ -14,7 +14,15 @@ public class SelectionCategoryMenuView {
 
     public void displaySetLevel() {
         LOGGER.info("Choose your level");
-        LOGGER.info("[1] Easy level");
-        LOGGER.info("[2] Hard level");
+        LOGGER.info("[1] Easy level (The length of the words is up to 5 characters)");
+        LOGGER.info("[OTHER] Hard level (The words have a minimum of 6 characters)");
+    }
+
+    public void printChoiceCategory(String choice) {
+        LOGGER.info("Your category: {}", choice);
+    }
+
+    public void printChoiceLevel(String choice) {
+        LOGGER.info("Your level: {}", choice);
     }
 }

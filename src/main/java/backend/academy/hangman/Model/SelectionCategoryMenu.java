@@ -17,10 +17,24 @@ public class SelectionCategoryMenu {
     public void viewCategory() {
         List<String> types = dictionary.getTypes();
         for (int i = 0; i < types.size(); i++) {
-            LOGGER.info("{}. {}", i, types.get(i));
+            LOGGER.info("[{}] {}", i, types.get(i));
         }
-        LOGGER.info("Other integer. random");
+        LOGGER.info("[OTHER] random");
         LOGGER.info("Please select a category: ");
+    }
+
+    public String getLevel(int level){
+        if (level == 1) {
+            return "EASY";
+        }
+        return "HARD";
+    }
+
+    public String getCategory(int choice) {
+        if (choice >= dictionary.getTypes().size()) {
+            return "random";
+        }
+        return dictionary.getTypes().get(choice);
     }
 
     public int input() {
