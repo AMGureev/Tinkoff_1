@@ -72,4 +72,8 @@ public enum HangmanStagesModel {
         int ordinal = this.ordinal();
         return values[(ordinal + 1) % values.length];
     }
+
+    public int getMaxAttempts() {
+        return HangmanStagesModel.values().length - 1;
+    }
 }
