@@ -9,8 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @NoArgsConstructor
-public class SelectionCategoryMenu {
-    private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenu.class);
+public class SelectionGameMode {
+    private static final Logger LOGGER = LogManager.getLogger(SelectionGameMode.class);
 
     private final String random = "random";
 

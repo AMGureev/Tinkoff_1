@@ -1,9 +1,9 @@
 package backend.academy.tests;
 
 import backend.academy.hangman.Controller.GameController;
-import backend.academy.hangman.Controller.SelectionCategoryMenuController;
+import backend.academy.hangman.Controller.SelectionGameModeController;
 import backend.academy.hangman.Entity.WordEntity;
-import backend.academy.hangman.Model.SelectionCategoryMenu;
+import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
 import backend.academy.hangman.View.SelectionCategoryMenuView;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class SelectionStagesMenuControllerTest {
 
     @Mock
-    private SelectionCategoryMenu model;
+    private SelectionGameMode model;
 
     @Mock
     private SelectionCategoryMenuView view;
@@ -37,7 +37,7 @@ public class SelectionStagesMenuControllerTest {
     private WordEntity wordEntity;
 
     @InjectMocks
-    private SelectionCategoryMenuController controller;
+    private SelectionGameModeController controller;
 
     @Mock
     private GameController game;

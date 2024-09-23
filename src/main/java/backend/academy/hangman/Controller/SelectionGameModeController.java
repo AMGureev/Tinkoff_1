@@ -2,7 +2,7 @@ package backend.academy.hangman.Controller;
 
 import backend.academy.Main;
 import backend.academy.hangman.Entity.WordEntity;
-import backend.academy.hangman.Model.SelectionCategoryMenu;
+import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
 import backend.academy.hangman.View.SelectionCategoryMenuView;
@@ -10,14 +10,14 @@ import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SelectionCategoryMenuController {
-    private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenuController.class);
-    private final SelectionCategoryMenu model;
+public class SelectionGameModeController {
+    private static final Logger LOGGER = LogManager.getLogger(SelectionGameModeController.class);
+    private final SelectionGameMode model;
     private final SelectionCategoryMenuView view;
 
     @Inject
-    public SelectionCategoryMenuController(
-        SelectionCategoryMenu model,
+    public SelectionGameModeController(
+        SelectionGameMode model,
         SelectionCategoryMenuView view
     ) {
         this.model = model;

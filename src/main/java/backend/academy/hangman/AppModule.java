@@ -1,8 +1,8 @@
 package backend.academy.hangman;
 
 import backend.academy.hangman.Controller.GameStatisticsController;
-import backend.academy.hangman.Controller.SelectionCategoryMenuController;
-import backend.academy.hangman.Model.SelectionCategoryMenu;
+import backend.academy.hangman.Controller.SelectionGameModeController;
+import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
@@ -18,8 +18,8 @@ public class AppModule extends AbstractModule {
         bind(StartMenuView.class).in(Singleton.class);
         bind(StartMenu.class).in(Singleton.class);
         bind(GameStatisticsController.class).in(Singleton.class);
-        bind(SelectionCategoryMenuController.class).in(Singleton.class);
-        bind(SelectionCategoryMenu.class).in(Singleton.class);
+        bind(SelectionGameModeController.class).in(Singleton.class);
+        bind(SelectionGameMode.class).in(Singleton.class);
         bind(SelectionCategoryMenuView.class).in(Singleton.class);
         bind(StatisticsModel.class).in(Singleton.class);
         bind(StatisticsView.class).in(Singleton.class);

@@ -1,7 +1,7 @@
 package backend.academy.tests;
 
 import backend.academy.hangman.Controller.DictionaryController;
-import backend.academy.hangman.Model.SelectionCategoryMenu;
+import backend.academy.hangman.Model.SelectionGameMode;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -13,12 +13,12 @@ import static org.mockito.Mockito.when;
 
 public class SelectionCategoryMenuTest {
 
-    private SelectionCategoryMenu selectionCategoryMenu;
+    private SelectionGameMode selectionCategoryMenu;
     private DictionaryController mockDictionaryController;
 
     @BeforeEach
     public void setUp() {
-        selectionCategoryMenu = new SelectionCategoryMenu();
+        selectionCategoryMenu = new SelectionGameMode();
         mockDictionaryController = Mockito.mock(DictionaryController.class);
     }
 
