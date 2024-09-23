@@ -9,7 +9,7 @@ public class StartMenuController {
     private final StartMenu startMenuModel;
     private final GameStatisticsController statisticsController;
     private final SelectionGameModeController gameModeController;
-    private static final int DEFAULT_MAX_COUNT = 3;
+    private static final int EXIT_NUMBER = 3;
 
     @Inject
     public StartMenuController(
@@ -28,7 +28,7 @@ public class StartMenuController {
         startMenuView.displayStartMenu();
         int choice = 0;
         choice = inputChoice();
-        while (choice != DEFAULT_MAX_COUNT) {
+        while (choice != EXIT_NUMBER) {
             switch (choice) {
                 case 1:
                     setGameMode();
