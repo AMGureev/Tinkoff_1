@@ -12,6 +12,8 @@ import org.apache.logging.log4j.Logger;
 public class SelectionCategoryMenu {
     private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenu.class);
 
+    private final String RANDOM = "random";
+
     private final DictionaryController dictionary = new DictionaryController("hangman.txt");
 
     public void viewCategory() {
@@ -23,7 +25,7 @@ public class SelectionCategoryMenu {
         LOGGER.info("Please select a category: ");
     }
 
-    public String getLevel(int level){
+    public String getLevel(int level) {
         if (level == 1) {
             return "EASY";
         }
@@ -32,7 +34,7 @@ public class SelectionCategoryMenu {
 
     public String getCategory(int choice) {
         if (choice >= dictionary.getTypes().size()) {
-            return "random";
+            return RANDOM;
         }
         return dictionary.getTypes().get(choice);
     }
@@ -48,7 +50,7 @@ public class SelectionCategoryMenu {
 
     public WordEntity getRandomWordByCategoryAndLevel(int category, int level) {
         if (category >= dictionary.getTypes().size()) {
-            return dictionary.getWordByLevel("random", level);
+            return dictionary.getWordByLevel(RANDOM, level);
         }
         return dictionary.getWordByLevel(dictionary.getTypes().get(category), level);
     }
