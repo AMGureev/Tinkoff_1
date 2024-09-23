@@ -38,6 +38,10 @@ public class SelectionGameModeController {
         int level = model.input();
         view.printChoiceLevel(model.getLevel(level));
         WordEntity word = model.getRandomWordByCategoryAndLevel(choice, level);
+        startGame(word);
+    }
+
+    public void startGame(WordEntity word) {
         if (word != null) {
             GameController controller = new GameController(word, Main.injector.getInstance(StatisticsModel.class),
                 Main.injector.getInstance(GameView.class));
@@ -46,5 +50,4 @@ public class SelectionGameModeController {
             LOGGER.error("Error: there are no words of such complexity.");
         }
     }
-
 }
