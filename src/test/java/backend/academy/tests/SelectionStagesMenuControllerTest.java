@@ -69,6 +69,7 @@ public class SelectionStagesMenuControllerTest {
         controller.chooseLevel(1);
 
         verify(view).displaySetLevel();
+        verify(view).printChoiceLevel(model.getLevel(1));
         verify(model).getRandomWordByCategoryAndLevel(1, 1);
         verifyNoMoreInteractions(view);
     }
@@ -83,7 +84,6 @@ public class SelectionStagesMenuControllerTest {
 //        verify(model).getRandomWordByCategoryAndLevel(1, 1);
 //        verifyNoMoreInteractions(view);
 //    }
-
 
     @Test
     public void testErrorLoggingForNullWord() {
