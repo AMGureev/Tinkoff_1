@@ -31,13 +31,13 @@ public class StartMenuController {
         while (choice != EXIT_NUMBER) {
             switch (choice) {
                 case 1:
-                    setGameMode();
+                    startGame();
                     break;
                 case 2:
                     displayUserStatistics();
                     break;
                 default:
-                    startMenuView.displayError();
+                    displayError();
             }
             choice = inputChoice();
         }
@@ -48,7 +48,7 @@ public class StartMenuController {
         statisticsController.displayStatistics();
     }
 
-    public void setGameMode() {
+    public void startGame() {
         gameModeController.chooseCategory();
     }
 
@@ -60,5 +60,9 @@ public class StartMenuController {
     public int inputChoice() {
         startMenuView.displaySelect();
         return startMenuModel.input();
+    }
+
+    public void displayError() {
+        startMenuView.displayError();
     }
 }
