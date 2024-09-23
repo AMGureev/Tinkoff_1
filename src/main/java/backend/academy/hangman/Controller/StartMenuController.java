@@ -13,15 +13,15 @@ public class StartMenuController {
 
     @Inject
     public StartMenuController(
-        StartMenuView view,
-        StartMenu model,
+        StartMenuView startMenuView,
+        StartMenu startMenuModel,
         GameStatisticsController statisticsController,
-        SelectionGameModeController stagesMenu
+        SelectionGameModeController gameModeController
     ) {
-        this.startMenuView = view;
-        this.startMenuModel = model;
+        this.startMenuView = startMenuView;
+        this.startMenuModel = startMenuModel;
         this.statisticsController = statisticsController;
-        this.gameModeController = stagesMenu;
+        this.gameModeController = gameModeController;
     }
 
     public void start() {
@@ -37,13 +37,11 @@ public class StartMenuController {
                 case 2:
                     displayUserStatistics();
                     break;
-                case DEFAULT_MAX_COUNT:
-                    exitProgram();
-                    break;
                 default:
                     startMenuView.displayError();
             }
         }
+        exitProgram();
     }
 
     public void displayUserStatistics() {
