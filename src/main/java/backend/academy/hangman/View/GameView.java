@@ -11,6 +11,10 @@ public class GameView {
         LOGGER.info("Welcome to the Hangman game!");
     }
 
+    public void printRemainingAttempts(int attempts) {
+        LOGGER.info("Maximum number of attempts: {}", attempts);
+    }
+
     public void printHint(WordEntity word) {
         LOGGER.info("Hint: {}", word.hint());
     }

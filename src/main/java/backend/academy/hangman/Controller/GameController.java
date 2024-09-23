@@ -40,6 +40,7 @@ public class GameController {
 
     public void startGame() {
         view.greetingOutput();
+        view.printRemainingAttempts(hangmanStageEntity.getMaxAttempts());
         GameSession gameSession = new GameSession(wordToGuess.word());
         printWordType();
         while (!Objects.equals(hangmanStageEntity.value(), HangmanStagesModel.STAGE_7.value()) && !gameWon && game) {
