@@ -1,7 +1,7 @@
 package backend.academy.tests;
 
 import backend.academy.hangman.Controller.GameStatisticsController;
-import backend.academy.hangman.Controller.SelectionStagesMenuController;
+import backend.academy.hangman.Controller.SelectionCategoryMenuController;
 import backend.academy.hangman.Controller.StartMenuController;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.View.StartMenuView;
@@ -23,14 +23,14 @@ public class StartMenuControllerTest {
     @Mock
     private GameStatisticsController statisticsController;
     @Mock
-    private SelectionStagesMenuController stagesMenu;
+    private SelectionCategoryMenuController stagesMenu;
 
     @BeforeEach
     public void setUp() {
         view = Mockito.mock(StartMenuView.class);
         model = Mockito.mock(StartMenu.class);
         statisticsController = Mockito.mock(GameStatisticsController.class);
-        stagesMenu = Mockito.mock(SelectionStagesMenuController.class);
+        stagesMenu = Mockito.mock(SelectionCategoryMenuController.class);
 
         controller = new StartMenuController(view, model, statisticsController, stagesMenu);
     }

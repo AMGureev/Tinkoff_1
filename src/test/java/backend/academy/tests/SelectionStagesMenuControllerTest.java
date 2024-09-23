@@ -1,7 +1,7 @@
 package backend.academy.tests;
 
 import backend.academy.hangman.Controller.GameController;
-import backend.academy.hangman.Controller.SelectionStagesMenuController;
+import backend.academy.hangman.Controller.SelectionCategoryMenuController;
 import backend.academy.hangman.Entity.WordEntity;
 import backend.academy.hangman.Model.SelectionCategoryMenu;
 import backend.academy.hangman.Model.StatisticsModel;
@@ -37,7 +37,7 @@ public class SelectionStagesMenuControllerTest {
     private WordEntity wordEntity;
 
     @InjectMocks
-    private SelectionStagesMenuController controller;
+    private SelectionCategoryMenuController controller;
 
     @Mock
     private GameController game;

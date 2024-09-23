@@ -8,7 +8,7 @@ public class StartMenuController {
     private final StartMenuView view;
     private final StartMenu model;
     private final GameStatisticsController statisticsController;
-    private final SelectionStagesMenuController stagesMenu;
+    private final SelectionCategoryMenuController stagesMenu;
     private static final int DEFAULT_MAX_COUNT = 3;
 
     @Inject
@@ -16,7 +16,7 @@ public class StartMenuController {
         StartMenuView view,
         StartMenu model,
         GameStatisticsController statisticsController,
-        SelectionStagesMenuController stagesMenu
+        SelectionCategoryMenuController stagesMenu
     ) {
         this.view = view;
         this.model = model;
@@ -32,7 +32,7 @@ public class StartMenuController {
             choice = model.input();
             switch (choice) {
                 case 1:
-                    setCategoryMenu();
+                    setGameMode();
                     break;
                 case 2:
                     displayUserStatistics();
@@ -50,7 +50,7 @@ public class StartMenuController {
         statisticsController.displayStatistics();
     }
 
-    public void setCategoryMenu() {
+    public void setGameMode() {
         stagesMenu.chooseCategory();
     }
 

@@ -10,13 +10,13 @@ import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SelectionStagesMenuController {
-    private static final Logger LOGGER = LogManager.getLogger(SelectionStagesMenuController.class);
+public class SelectionCategoryMenuController {
+    private static final Logger LOGGER = LogManager.getLogger(SelectionCategoryMenuController.class);
     private final SelectionCategoryMenu model;
     private final SelectionCategoryMenuView view;
 
     @Inject
-    public SelectionStagesMenuController(
+    public SelectionCategoryMenuController(
         SelectionCategoryMenu model,
         SelectionCategoryMenuView view
     ) {
