@@ -6,7 +6,7 @@ import backend.academy.hangman.Entity.WordEntity;
 import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
-import backend.academy.hangman.View.SelectionCategoryMenuView;
+import backend.academy.hangman.View.SelectionGameModeView;
 import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ public class SelectionStagesMenuControllerTest {
     private SelectionGameMode model;
 
     @Mock
-    private SelectionCategoryMenuView view;
+    private SelectionGameModeView view;
 
     @Mock
     private GameView gameView;

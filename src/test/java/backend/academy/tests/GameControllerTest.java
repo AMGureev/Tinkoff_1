@@ -50,7 +50,7 @@ class GameControllerTest {
         inOrder.verify(gameView).greetingOutput();
         inOrder.verify(gameView).printWordType("noun");
         inOrder.verify(gameView).gameWonOutput("test");
-        inOrder.verify(statisticsModel).addGame(any());
+        inOrder.verify(statisticsModel).addGameInStatistic(any());
 
         //verify(gameView, times(3)).printWarning();
         verify(gameView, never()).gameLossOutput(anyString());
@@ -67,7 +67,7 @@ class GameControllerTest {
         inOrder.verify(gameView).greetingOutput();
         inOrder.verify(gameView).printWordType("noun");
         inOrder.verify(gameView).gameLossOutput("test");
-        inOrder.verify(statisticsModel).addGame(any());
+        inOrder.verify(statisticsModel).addGameInStatistic(any());
 
         verify(gameView, never()).gameWonOutput(anyString());
     }

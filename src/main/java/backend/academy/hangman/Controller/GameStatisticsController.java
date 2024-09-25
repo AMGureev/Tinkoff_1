@@ -5,16 +5,16 @@ import backend.academy.hangman.View.StatisticsView;
 import com.google.inject.Inject;
 
 public class GameStatisticsController {
-    private final StatisticsModel model;
-    private final StatisticsView view;
+    private final StatisticsModel statisticsModel;
+    private final StatisticsView statisticsView;
 
     @Inject
-    public GameStatisticsController(StatisticsModel model, StatisticsView view) {
-        this.model = model;
-        this.view = view;
+    public GameStatisticsController(StatisticsModel statisticsModel, StatisticsView statisticsView) {
+        this.statisticsModel = statisticsModel;
+        this.statisticsView = statisticsView;
     }
 
     public void displayStatistics() {
-        view.displayStatistics(model.getAllInfoStatistics());
+        statisticsView.displayStatistics(statisticsModel.getAllInfoStatistics());
     }
 }

@@ -1,17 +1,17 @@
 package backend.academy.tests;
 
-import backend.academy.hangman.View.SelectionCategoryMenuView;
+import backend.academy.hangman.View.SelectionGameModeView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class SelectionCategoryMenuViewTest {
 
-    private SelectionCategoryMenuView menuView;
+    private SelectionGameModeView menuView;
 
     @BeforeEach
     void setUp() {
-        menuView = new SelectionCategoryMenuView();
+        menuView = new SelectionGameModeView();
     }
 
     @Test

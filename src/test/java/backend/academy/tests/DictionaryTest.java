@@ -15,8 +15,8 @@ public class DictionaryTest {
 
     @BeforeEach
     public void setUp() {
-        dictionary = new Dictionary();
-        dictionary.loadWordsFromFile("test_words.txt");
+        dictionary = new Dictionary("test_words.txt");
+        // TODO
     }
 
     @Test
