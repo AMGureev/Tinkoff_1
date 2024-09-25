@@ -5,9 +5,8 @@ import backend.academy.hangman.Entity.CommandInGameEnum;
 import backend.academy.hangman.Entity.ResultGameEnum;
 import backend.academy.hangman.Entity.WordEntity;
 import com.google.inject.Inject;
-import lombok.Getter;
-
 import java.util.Objects;
+import lombok.Getter;
 
 public class GameService {
     @Getter

@@ -94,6 +94,10 @@ public class Dictionary {
             }
             case HARD: {
                 minLength = MIN_LENGTH_LEVEL_HARD;
+                break;
+            }
+            default: {
+                break;
             }
         }
         return new HashSet<>(Arrays.asList(minLength, maxLength));

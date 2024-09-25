@@ -66,4 +66,8 @@ public class GameView {
     public void printLastValidatorError(String errorMessage) {
         LOGGER.info(errorMessage);
     }
+
+    public void printUnknownCommand() {
+        LOGGER.info("Unknown command!");
+    }
 }

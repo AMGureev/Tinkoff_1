@@ -70,18 +70,26 @@ public class GameController {
 
     private void processCommand(CommandInGameEnum command) {
         switch (command) {
-            case GET_HINT:
+            case GET_HINT: {
                 gameView.printHint(gameService.wordToGuess());
                 break;
+            }
 
-            case EXIT:
+            case EXIT: {
                 exit();
                 break;
+            }
 
-            case MENU:
+            case MENU: {
                 gameView.returnOutput();
                 gameService.changeActiveGameShutdown();
                 break;
+            }
+
+            default: {
+                gameView.printUnknownCommand();
+            }
+
         }
     }
 
