@@ -22,7 +22,7 @@ public class StatisticsModel {
         return answer.substring(0, answer.length() - 1);
     }
 
-    public void addGame(GameSession gameSession) {
+    public void addGameInStatistic(GameSession gameSession) {
         this.countGame += 1;
         gameSessions.add(gameSession);
     }
