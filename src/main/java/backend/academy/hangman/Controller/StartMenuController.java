@@ -3,6 +3,7 @@ package backend.academy.hangman.Controller;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.View.StartMenuView;
 import com.google.inject.Inject;
+import java.util.Scanner;
 
 public class StartMenuController {
     private final StartMenuView startMenuView;
@@ -26,9 +27,11 @@ public class StartMenuController {
 
     public void start() {
         startMenuView.displayStartMenu();
+        startMenuView.displaySelect();
         int choice = 0;
         choice = inputChoice();
         while (choice != EXIT_NUMBER) {
+
             switch (choice) {
                 case 1:
                     startGame();
@@ -37,8 +40,9 @@ public class StartMenuController {
                     displayUserStatistics();
                     break;
                 default:
-                    displayError();
+                    displayInputError();
             }
+            startMenuView.displaySelect();
             choice = inputChoice();
         }
         exitProgram();
@@ -49,7 +53,7 @@ public class StartMenuController {
     }
 
     public void startGame() {
-        gameModeController.chooseCategory();
+        gameModeController.settingUpTheGame();
     }
 
     public void exitProgram() {
@@ -58,11 +62,15 @@ public class StartMenuController {
     }
 
     public int inputChoice() {
-        startMenuView.displaySelect();
-        return startMenuModel.input();
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextInt()) {
+            startMenuView.displayError();
+            scanner.next();
+        }
+        return scanner.nextInt();
     }
 
-    public void displayError() {
+    public void displayInputError() {
         startMenuView.displayError();
     }
 }
