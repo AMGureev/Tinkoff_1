@@ -68,7 +68,7 @@ public class GameController {
         gameService.addGameInStatistic(gameSession);
     }
 
-    private void processCommand(CommandInGameEnum command) {
+    public void processCommand(CommandInGameEnum command) {
         switch (command) {
             case GET_HINT: {
                 gameView.printHint(gameService.wordToGuess());
@@ -93,7 +93,7 @@ public class GameController {
         }
     }
 
-    private void displayGameStatus() {
+    public void displayGameStatus() {
         gameView.printGallows(gameService.hangmanStageModel());
         gameView.printGameLineWithDashes(gameService.getWordWithGuessedLetters());
         gameView.printListOfLettersUsed(gameService.wordCollectorModel().getLetters());
