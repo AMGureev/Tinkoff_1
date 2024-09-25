@@ -6,7 +6,7 @@ import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.Model.StatisticsModel;
 import backend.academy.hangman.View.GameView;
-import backend.academy.hangman.View.SelectionCategoryMenuView;
+import backend.academy.hangman.View.SelectionGameModeView;
 import backend.academy.hangman.View.StartMenuView;
 import backend.academy.hangman.View.StatisticsView;
 import com.google.inject.AbstractModule;
@@ -20,7 +20,7 @@ public class AppModule extends AbstractModule {
         bind(GameStatisticsController.class).in(Singleton.class);
         bind(SelectionGameModeController.class).in(Singleton.class);
         bind(SelectionGameMode.class).in(Singleton.class);
-        bind(SelectionCategoryMenuView.class).in(Singleton.class);
+        bind(SelectionGameModeView.class).in(Singleton.class);
         bind(StatisticsModel.class).in(Singleton.class);
         bind(StatisticsView.class).in(Singleton.class);
         bind(GameView.class).in(Singleton.class);
