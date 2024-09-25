@@ -1,53 +1,72 @@
 package backend.academy.hangman.Controller;
 
 import backend.academy.Main;
+import backend.academy.hangman.Entity.WordCollectorEntity;
 import backend.academy.hangman.Entity.WordEntity;
+import backend.academy.hangman.Model.GameService;
 import backend.academy.hangman.Model.SelectionGameMode;
 import backend.academy.hangman.Model.StatisticsModel;
+import backend.academy.hangman.Model.ValidationResultsModel;
+import backend.academy.hangman.Model.WordCollectorModel;
 import backend.academy.hangman.View.GameView;
-import backend.academy.hangman.View.SelectionCategoryMenuView;
+import backend.academy.hangman.View.SelectionGameModeView;
 import com.google.inject.Inject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
 
 public class SelectionGameModeController {
-    private static final Logger LOGGER = LogManager.getLogger(SelectionGameModeController.class);
-    private final SelectionGameMode model;
-    private final SelectionCategoryMenuView view;
+    private final SelectionGameMode gameModeModel;
+    private final SelectionGameModeView selectionGameModeView;
 
     @Inject
     public SelectionGameModeController(
-        SelectionGameMode model,
-        SelectionCategoryMenuView view
+        SelectionGameMode gameModeModel,
+        SelectionGameModeView selectionGameModeView
     ) {
-        this.model = model;
-        this.view = view;
+        this.gameModeModel = gameModeModel;
+        this.selectionGameModeView = selectionGameModeView;
     }
 
-    public void chooseCategory() {
-        view.printHeading();
-        model.viewCategory();
-        int choice;
-        choice = model.input();
-        view.printChoiceCategory(model.getCategory(choice));
-        chooseLevel(choice);
-    }
+    public void settingUpTheGame() {
+        selectionGameModeView.printHeading();
+        selectionGameModeView.viewCategory(gameModeModel);
 
-    public void chooseLevel(Integer choice) {
-        view.displaySetLevel();
-        int level = model.input();
-        view.printChoiceLevel(model.getLevel(level));
-        WordEntity word = model.getRandomWordByCategoryAndLevel(choice, level);
-        startGame(word);
+        int selectedCategory = input();
+
+        selectionGameModeView.printChoiceCategory(
+            gameModeModel.getCategory(selectedCategory));
+
+        selectionGameModeView.displaySetLevel();
+
+        int selectedLevel = input();
+
+        selectionGameModeView.printChoiceLevel(
+            gameModeModel.getLevel(selectedLevel).valueLevel());
+
+        startGame(gameModeModel.getRandomWordByCategoryAndLevel(selectedCategory, selectedLevel));
+
     }
 
     public void startGame(WordEntity word) {
         if (word != null) {
-            GameController controller = new GameController(word, Main.injector.getInstance(StatisticsModel.class),
+            GameService gameService = new GameService(word,
+                Main.injector.getInstance(StatisticsModel.class),
+                new ValidatorController(new ValidationResultsModel()),
+                new WordCollectorModel(new WordCollectorEntity()));
+            GameController gameController = new GameController(
+                gameService,
                 Main.injector.getInstance(GameView.class));
-            controller.startGame();
+            gameController.startGame();
         } else {
-            LOGGER.error("Error: there are no words of such complexity.");
+            selectionGameModeView.printErrorWordNotFound();
         }
+    }
+
+    public int input() {
+        Scanner scanner = new Scanner(System.in);
+        while (!scanner.hasNextInt()) {
+            selectionGameModeView.printInputError();
+            scanner.next();
+        }
+        return scanner.nextInt();
     }
 }
