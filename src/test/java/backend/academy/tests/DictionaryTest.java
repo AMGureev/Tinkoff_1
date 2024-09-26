@@ -1,13 +1,15 @@
 package backend.academy.tests;
 
+import backend.academy.hangman.Entity.DifficultyLevelEnum;
 import backend.academy.hangman.Entity.WordEntity;
 import backend.academy.hangman.Model.Dictionary;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DictionaryTest {
 
@@ -16,7 +18,6 @@ public class DictionaryTest {
     @BeforeEach
     public void setUp() {
         dictionary = new Dictionary("test_words.txt");
-        // TODO
     }
 
     @Test
@@ -40,21 +41,21 @@ public class DictionaryTest {
 
     @Test
     public void testGetWordByLevel_Level1() {
-        WordEntity word = dictionary.getWordByLevel("fruit", 1);
+        WordEntity word = dictionary.getWordByLevel("fruit", DifficultyLevelEnum.EASY);
         assertNotNull(word);
         assertTrue(word.word().length() <= 6);
     }
 
     @Test
     public void testGetWordByLevel_Level2() {
-        WordEntity word = dictionary.getWordByLevel("animal", 2);
+        WordEntity word = dictionary.getWordByLevel("animal", DifficultyLevelEnum.HARD);
         assertNotNull(word);
         assertTrue(word.word().length() >= 5);
     }
 
     @Test
     public void testGetRandomWordByCategory() {
-        WordEntity word = dictionary.getWordByLevel("random", 1);
+        WordEntity word = dictionary.getWordByLevel("random", DifficultyLevelEnum.EASY);
         assertNotNull(word);
     }
 
@@ -69,6 +70,6 @@ public class DictionaryTest {
     @Test
     public void testEmptyCategory() {
         List<WordEntity> filteredWords = dictionary.getFilteredDictionary("nonexistent");
-        assertNull(filteredWords);
+        assertTrue(filteredWords.isEmpty());
     }
 }

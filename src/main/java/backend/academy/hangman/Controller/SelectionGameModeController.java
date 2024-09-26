@@ -11,11 +11,13 @@ import backend.academy.hangman.Model.WordCollectorModel;
 import backend.academy.hangman.View.GameView;
 import backend.academy.hangman.View.SelectionGameModeView;
 import com.google.inject.Inject;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class SelectionGameModeController {
     private final SelectionGameMode gameModeModel;
     private final SelectionGameModeView selectionGameModeView;
+    private BufferedReader userInputStream;
 
     @Inject
     public SelectionGameModeController(
@@ -27,6 +29,8 @@ public class SelectionGameModeController {
     }
 
     public void settingUpTheGame() {
+        userInputStream = new BufferedReader(new InputStreamReader(System.in));
+
         selectionGameModeView.printHeading();
         selectionGameModeView.viewCategory(gameModeModel);
 
@@ -62,11 +66,16 @@ public class SelectionGameModeController {
     }
 
     public int input() {
-        Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextInt()) {
-            selectionGameModeView.printInputError();
-            scanner.next();
+        String inputString = "";
+        int userChoice = 0;
+        while (!inputString.matches("-?\\d+")) {
+            try {
+                inputString = userInputStream.readLine();
+                userChoice = Integer.parseInt(inputString);
+            } catch (Exception e) {
+                selectionGameModeView.printInputError();
+            }
         }
-        return scanner.nextInt();
+        return userChoice;
     }
 }

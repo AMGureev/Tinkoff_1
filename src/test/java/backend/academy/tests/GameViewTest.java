@@ -52,7 +52,7 @@ public class GameViewTest {
     }
 
     @Test
-    public void testPrintWarning() {
-        assertDoesNotThrow(() -> gameView.printWarning());
+    public void testPrintWarningReuseOfTheLetter() {
+        assertDoesNotThrow(() -> gameView.printWarningReuseOfTheLetter());
     }
 }
