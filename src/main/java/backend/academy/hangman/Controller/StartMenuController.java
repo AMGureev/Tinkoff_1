@@ -3,13 +3,15 @@ package backend.academy.hangman.Controller;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.View.StartMenuView;
 import com.google.inject.Inject;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class StartMenuController {
     private final StartMenuView startMenuView;
     private final StartMenu startMenuModel;
     private final GameStatisticsController statisticsController;
     private final SelectionGameModeController gameModeController;
+    private BufferedReader userInputStream;
     private static final int EXIT_NUMBER = 3;
 
     @Inject
@@ -26,6 +28,8 @@ public class StartMenuController {
     }
 
     public void start() {
+        userInputStream = new BufferedReader(new InputStreamReader(System.in));
+
         startMenuView.displayStartMenu();
         startMenuView.displaySelect();
         int choice = 0;
@@ -62,12 +66,17 @@ public class StartMenuController {
     }
 
     public int inputChoice() {
-        Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextInt()) {
-            startMenuView.displayError();
-            scanner.next();
+        String inputString = "";
+        int userChoice = 0;
+        while (!inputString.matches("-?\\d+")) {
+            try {
+                inputString = userInputStream.readLine();
+                userChoice = Integer.parseInt(inputString);
+            } catch (Exception e) {
+                startMenuView.displayError();
+            }
         }
-        return scanner.nextInt();
+        return userChoice;
     }
 
     public void displayInputError() {

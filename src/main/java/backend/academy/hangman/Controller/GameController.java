@@ -6,12 +6,15 @@ import backend.academy.hangman.Model.GameService;
 import backend.academy.hangman.Model.GameSession;
 import backend.academy.hangman.View.GameView;
 import com.google.inject.Inject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class GameController {
     private final GameService gameService;
     private final GameView gameView;
+    private BufferedReader userInputStream;
 
     @Inject
     public GameController(
@@ -24,6 +27,7 @@ public class GameController {
 
     public void startGame() {
         GameSession gameSession = new GameSession(gameService.wordToGuess().word());
+        userInputStream = new BufferedReader(new InputStreamReader(System.in));
 
         gameView.greetingOutput();
         gameView.printRemainingAttempts(gameService.hangmanStageModel().getMaxAttempts());
@@ -110,7 +114,10 @@ public class GameController {
     }
 
     public String input() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        try {
+            return userInputStream.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

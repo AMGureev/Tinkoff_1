@@ -17,29 +17,32 @@ public class GameService {
     @Getter
     private HangmanStagesModel hangmanStageModel;
     @Getter
-    private boolean isActiveGame = true;
+    private boolean isActiveGame;
     @Getter
     private final ValidatorController validator;
     @Getter
     private final WordCollectorModel wordCollectorModel;
 
     @Inject
-    public GameService(WordEntity wordToGuess,
-                       StatisticsModel statistics,
-                       ValidatorController validator,
-                       WordCollectorModel wordCollectorModel) {
+    public GameService(
+        WordEntity wordToGuess,
+        StatisticsModel statistics,
+        ValidatorController validator,
+        WordCollectorModel wordCollectorModel
+    ) {
         this.wordToGuess = wordToGuess;
         this.statistics = statistics;
         this.resultOfGame = ResultGameEnum.IN_PROGRESS;
         this.hangmanStageModel = HangmanStagesModel.STAGE_1;
         this.validator = validator;
         this.wordCollectorModel = wordCollectorModel;
+        this.isActiveGame = true;
     }
 
     public boolean isGameOver() {
         return (Objects.equals(hangmanStageModel.value(), HangmanStagesModel.STAGE_7.value())
-                || Objects.equals(resultOfGame.valueResult(), ResultGameEnum.WIN.valueResult())
-                || !isActiveGame);
+            || Objects.equals(resultOfGame.valueResult(), ResultGameEnum.WIN.valueResult())
+            || !isActiveGame);
     }
 
     public boolean isCommand(String inputString) {
