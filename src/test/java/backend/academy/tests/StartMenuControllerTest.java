@@ -5,7 +5,6 @@ import backend.academy.hangman.Controller.SelectionGameModeController;
 import backend.academy.hangman.Controller.StartMenuController;
 import backend.academy.hangman.Model.StartMenu;
 import backend.academy.hangman.View.StartMenuView;
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
