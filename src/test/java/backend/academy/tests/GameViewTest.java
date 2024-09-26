@@ -1,7 +1,10 @@
 package backend.academy.tests;
 
 import backend.academy.hangman.Entity.WordEntity;
+import backend.academy.hangman.Model.HangmanStagesModel;
 import backend.academy.hangman.View.GameView;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -54,5 +57,40 @@ public class GameViewTest {
     @Test
     public void testPrintWarningReuseOfTheLetter() {
         assertDoesNotThrow(() -> gameView.printWarningReuseOfTheLetter());
+    }
+
+    @Test
+    public void testPrintAllCommands() {
+        String gameCommands = "guess, hint, exit";
+        assertDoesNotThrow(() -> gameView.printAllCommands(gameCommands));
+    }
+
+    @Test
+    public void testPrintGameLineWithDashes() {
+        String gameLineWithDashes = "___";
+        assertDoesNotThrow(() -> gameView.printGameLineWithDashes(gameLineWithDashes));
+    }
+
+    @Test
+    public void testPrintGallows() {
+        HangmanStagesModel hangmanStageModel = HangmanStagesModel.STAGE_1;
+        assertDoesNotThrow(() -> gameView.printGallows(hangmanStageModel));
+    }
+
+    @Test
+    public void testPrintListOfLettersUsed() {
+        List<Character> listOfLettersUsed = Arrays.asList('a', 'b', 'c');
+        assertDoesNotThrow(() -> gameView.printListOfLettersUsed(listOfLettersUsed));
+    }
+
+    @Test
+    public void testPrintLastValidatorError() {
+        String errorMessage = "Invalid input!";
+        assertDoesNotThrow(() -> gameView.printLastValidatorError(errorMessage));
+    }
+
+    @Test
+    public void testPrintUnknownCommand() {
+        assertDoesNotThrow(() -> gameView.printUnknownCommand());
     }
 }
